@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+import os
+
+path = raw_input('输入文件夹绝对路径');
+dirs = os.listdir(path);
+
+os.chdir(path)#切换工作路径
+
+length = len(dirs);
+i = 1;
+for file in dirs:
+    index_p = file.find('.');
+    new_name = str(i) + file[index_p:];#保留后缀名
+    os.rename(file,new_name);
+    i += 1;
